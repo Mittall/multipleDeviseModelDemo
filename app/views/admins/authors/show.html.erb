@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @author.id %>
+</p>
+<p>
+  <strong>Post:</strong>
+  <%= @author.post %>
+</p>
+
+<%= link_to 'Edit', edit_admins_author_path(@author) %> |
+<%= link_to 'Back', admins_authors_path %>

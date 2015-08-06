@@ -1,0 +1,45 @@
+<%= link_to 'Add New', new_admins_author_path %>
+<table border="1px">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Post</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @authors.size > 0 %>
+      <% @authors.each do |author| %>
+        <tr>
+          <td><%= author.id %></td>          
+          <td><%= author.post %></td>
+        <td>
+          <% if can? :read, author %>
+          <td><%= link_to 'Show', admins_author_path(author) %></td>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :update, author %>
+          <td><%= link_to 'Edit', edit_admins_author_path(author) %></td>
+          <% end %>
+        </td>
+
+        <td>
+          <% if can? :destroy, author %>
+          <td><%= link_to 'Destroy', "" %></td>
+          <% end %>
+        </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <div>No record found.</div>
+    <% end %>
+	<br/>
+  </tbody>
+</table>
+<br/>
+
+
+

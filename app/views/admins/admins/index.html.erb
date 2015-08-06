@@ -1,0 +1,30 @@
+<%= link_to 'Add New', new_admins_admin_path %>
+<table border="1px">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Id</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @admins.size > 0 %>
+      <% @admins.each do |admin| %>
+        <tr>
+          <td><%= admin.id %></td>          
+          <td><%= admin.email %></td>
+          <td><%= link_to 'Edit', edit_admins_admin_path(admin) %></td>
+          <td><%= link_to 'Show', admins_admin_path(admin) %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <div>No record found.</div>
+    <% end %>
+	<br>
+  </tbody>
+</table>
+<br/>

@@ -1,0 +1,38 @@
+<%= form_for ["admins", @author] do |f| %>
+  <% if @author.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
+
+      <ul>
+      <% @author.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :admin_attributes do |builder| %>
+    <br/>
+    <div class="field">
+      <%= builder.label :email %><br>
+      <%= builder.text_field :email %>
+    </div>
+    <div class="field">
+      <%= builder.label :password %><br>
+      <%= builder.password_field :password %>
+    </div>   
+    <div class="field">
+      <%= builder.label :password_confirmation %><br>
+      <%= builder.password_field :password_confirmation %>
+    </div>   
+  <% end %>
+
+  <div class="field">
+    <%= f.label :post %><br>
+    <%= f.text_field :post %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
